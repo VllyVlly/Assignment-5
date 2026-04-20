@@ -87,15 +87,15 @@ CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o: CMakeFiles/kernels.dir/fla
 CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o: /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment\ 5/src/kernel/blackscholes.cpp
 CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o: CMakeFiles/kernels.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -ffast-math -Wall -g -fno-omit-frame-pointer -O3 -fprefetch-loop-arrays -MD -MT CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o -c "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/blackscholes.cpp"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -ffast-math -Wall -g -fno-omit-frame-pointer -O3 -march=native -MD -MT CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o -c "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/blackscholes.cpp"
 
 CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -ffast-math -Wall -g -fno-omit-frame-pointer -O3 -fprefetch-loop-arrays -E "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/blackscholes.cpp" > CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -ffast-math -Wall -g -fno-omit-frame-pointer -O3 -march=native -E "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/blackscholes.cpp" > CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.i
 
 CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -ffast-math -Wall -g -fno-omit-frame-pointer -O3 -fprefetch-loop-arrays -S "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/blackscholes.cpp" -o CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -ffast-math -Wall -g -fno-omit-frame-pointer -O3 -march=native -S "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/blackscholes.cpp" -o CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.s
 
 CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.o: CMakeFiles/kernels.dir/flags.make
 CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.o: /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment\ 5/src/kernel/filter_gradient.cpp
@@ -129,15 +129,15 @@ CMakeFiles/kernels.dir/src/kernel/grff.cpp.o: CMakeFiles/kernels.dir/flags.make
 CMakeFiles/kernels.dir/src/kernel/grff.cpp.o: /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment\ 5/src/kernel/grff.cpp
 CMakeFiles/kernels.dir/src/kernel/grff.cpp.o: CMakeFiles/kernels.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/kernels.dir/src/kernel/grff.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/grff.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/grff.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/grff.cpp.o -c "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/grff.cpp"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -ffast-math -Wall -g -fno-omit-frame-pointer -O3 -MD -MT CMakeFiles/kernels.dir/src/kernel/grff.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/grff.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/grff.cpp.o -c "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/grff.cpp"
 
 CMakeFiles/kernels.dir/src/kernel/grff.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kernels.dir/src/kernel/grff.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/grff.cpp" > CMakeFiles/kernels.dir/src/kernel/grff.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -ffast-math -Wall -g -fno-omit-frame-pointer -O3 -E "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/grff.cpp" > CMakeFiles/kernels.dir/src/kernel/grff.cpp.i
 
 CMakeFiles/kernels.dir/src/kernel/grff.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kernels.dir/src/kernel/grff.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/grff.cpp" -o CMakeFiles/kernels.dir/src/kernel/grff.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -ffast-math -Wall -g -fno-omit-frame-pointer -O3 -S "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/grff.cpp" -o CMakeFiles/kernels.dir/src/kernel/grff.cpp.s
 
 CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.o: CMakeFiles/kernels.dir/flags.make
 CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.o: /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment\ 5/src/kernel/image_proc.cpp

@@ -10,7 +10,9 @@ CXX_FLAGS = -DDEBUG -std=c++23 -ffast-math -O2 -Wall -g -fno-omit-frame-pointer
 
 # Custom flags: CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.o_FLAGS = -ffast-math -Wall -g -fno-omit-frame-pointer -O3 -march=native -fprefetch-loop-arrays
 
-# Custom flags: CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o_FLAGS = -ffast-math -Wall -g -fno-omit-frame-pointer -O3 -fprefetch-loop-arrays
+# Custom flags: CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o_FLAGS = -ffast-math -Wall -g -fno-omit-frame-pointer -O3 -march=native
+
+# Custom flags: CMakeFiles/kernels.dir/src/kernel/grff.cpp.o_FLAGS = -ffast-math -Wall -g -fno-omit-frame-pointer -O3
 
 # Custom flags: CMakeFiles/kernels.dir/src/kernel/matmul.cpp.o_FLAGS = -ffast-math -Wall -g -fno-omit-frame-pointer -O3
 

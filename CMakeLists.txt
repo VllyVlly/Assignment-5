@@ -37,6 +37,10 @@ set_source_files_properties(src/kernel/blackscholes.cpp
     PROPERTIES COMPILE_FLAGS "-ffast-math -Wall -g -fno-omit-frame-pointer -O3 -march=native"
 )
 
+set_source_files_properties(src/kernel/grff.cpp 
+    PROPERTIES COMPILE_FLAGS "-ffast-math -Wall -g -fno-omit-frame-pointer -O3"
+)
+
 
 
 target_include_directories(kernels PUBLIC include)

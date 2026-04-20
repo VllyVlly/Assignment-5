@@ -129,15 +129,15 @@ CMakeFiles/kernels.dir/src/kernel/grff.cpp.o: CMakeFiles/kernels.dir/flags.make
 CMakeFiles/kernels.dir/src/kernel/grff.cpp.o: /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment\ 5/src/kernel/grff.cpp
 CMakeFiles/kernels.dir/src/kernel/grff.cpp.o: CMakeFiles/kernels.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/kernels.dir/src/kernel/grff.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/grff.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/grff.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/grff.cpp.o -c "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/grff.cpp"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -ffast-math -Wall -g -fno-omit-frame-pointer -O3 -MD -MT CMakeFiles/kernels.dir/src/kernel/grff.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/grff.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/grff.cpp.o -c "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/grff.cpp"
 
 CMakeFiles/kernels.dir/src/kernel/grff.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kernels.dir/src/kernel/grff.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/grff.cpp" > CMakeFiles/kernels.dir/src/kernel/grff.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -ffast-math -Wall -g -fno-omit-frame-pointer -O3 -E "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/grff.cpp" > CMakeFiles/kernels.dir/src/kernel/grff.cpp.i
 
 CMakeFiles/kernels.dir/src/kernel/grff.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kernels.dir/src/kernel/grff.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/grff.cpp" -o CMakeFiles/kernels.dir/src/kernel/grff.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -ffast-math -Wall -g -fno-omit-frame-pointer -O3 -S "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/grff.cpp" -o CMakeFiles/kernels.dir/src/kernel/grff.cpp.s
 
 CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.o: CMakeFiles/kernels.dir/flags.make
 CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.o: /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment\ 5/src/kernel/image_proc.cpp

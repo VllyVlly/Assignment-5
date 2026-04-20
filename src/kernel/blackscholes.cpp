@@ -246,15 +246,19 @@ void stu_BlkSchls(std::vector<float> &CallOptionPrice,
     // TODO:
     // Implement your version for BlkSchls here, then 
     // call it at stu_BlkSchls_wrapper()...
-    size_t n = spotPrice.size();
+    const size_t n = spotPrice.size();
+
+    float* call = CallOptionPrice.data();
+    float* put  = PutOptionPrice.data();
+
+    const float* s = spotPrice.data();
+    const float* k = strike.data();
+    const float* r = rate.data();
+    const float* v = volatility.data();
+    const float* t = time.data();
+
     for (size_t i = 0; i < n; ++i) {
-        stu_BlkSchls_one(CallOptionPrice[i],
-                           PutOptionPrice[i],
-                           spotPrice[i],
-                           strike[i],
-                           rate[i],
-                           volatility[i],
-                           time[i]);
+        stu_BlkSchls_one(call[i], put[i], s[i], k[i], r[i], v[i], t[i]);
     }
 }
 

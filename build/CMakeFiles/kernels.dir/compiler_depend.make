@@ -459,6 +459,7 @@ CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o: /mnt/d/Virelle/Projects/Sc
   /usr/include/c++/14/span \
   /usr/include/c++/14/sstream \
   /usr/include/c++/14/stdexcept \
+  /usr/include/c++/14/stdlib.h \
   /usr/include/c++/14/streambuf \
   /usr/include/c++/14/string \
   /usr/include/c++/14/string_view \
@@ -599,9 +600,15 @@ CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o: /mnt/d/Virelle/Projects/Sc
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/lib/gcc/x86_64-linux-gnu/14/include/emmintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/14/include/mm_malloc.h \
+  /usr/lib/gcc/x86_64-linux-gnu/14/include/mmintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/14/include/mwaitintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/14/include/pmmintrin.h \
   /usr/lib/gcc/x86_64-linux-gnu/14/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/14/include/stddef.h \
-  /usr/lib/gcc/x86_64-linux-gnu/14/include/stdint.h
+  /usr/lib/gcc/x86_64-linux-gnu/14/include/stdint.h \
+  /usr/lib/gcc/x86_64-linux-gnu/14/include/xmmintrin.h
 
 CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.o: /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment\ 5/src/kernel/filter_gradient.cpp \
   /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment\ 5/include/bench.h \
