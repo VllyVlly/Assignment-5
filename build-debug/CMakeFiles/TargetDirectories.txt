@@ -1,0 +1,5 @@
+/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/build-debug/CMakeFiles/kernels.dir
+/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/build-debug/CMakeFiles/single_bench.dir
+/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/build-debug/CMakeFiles/run_all.dir
+/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/build-debug/CMakeFiles/edit_cache.dir
+/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/build-debug/CMakeFiles/rebuild_cache.dir

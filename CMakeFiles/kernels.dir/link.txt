@@ -1,0 +1,2 @@
+/usr/bin/ar qc libkernels.a CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.o CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.o CMakeFiles/kernels.dir/src/kernel/graph.cpp.o CMakeFiles/kernels.dir/src/kernel/grff.cpp.o CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.o CMakeFiles/kernels.dir/src/kernel/matmul.cpp.o CMakeFiles/kernels.dir/src/kernel/relu.cpp.o CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.o CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.o
+/usr/bin/ranlib libkernels.a

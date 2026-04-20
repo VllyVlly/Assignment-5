@@ -1,0 +1,5 @@
+/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/CSC3060_Project5_Code_Optimization/CMakeFiles/kernels.dir
+/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/CSC3060_Project5_Code_Optimization/CMakeFiles/single_bench.dir
+/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/CSC3060_Project5_Code_Optimization/CMakeFiles/run_all.dir
+/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/CSC3060_Project5_Code_Optimization/CMakeFiles/edit_cache.dir
+/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/CSC3060_Project5_Code_Optimization/CMakeFiles/rebuild_cache.dir

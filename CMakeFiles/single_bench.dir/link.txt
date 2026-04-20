@@ -1,0 +1,1 @@
+/usr/bin/g++-13  -O3 -ftree-vectorize -funroll-loops CMakeFiles/single_bench.dir/src/main/single_bench.cpp.o -o single_bench  libkernels.a -lstdc++exp 

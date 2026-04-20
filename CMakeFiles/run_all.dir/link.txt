@@ -1,0 +1,1 @@
+/usr/bin/g++-13  -O3 -ftree-vectorize -funroll-loops CMakeFiles/run_all.dir/src/main/run_all.cpp.o -o run_all  libkernels.a -lstdc++exp 

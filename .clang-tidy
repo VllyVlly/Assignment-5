@@ -1,0 +1,20 @@
+---
+Checks: >
+  clang-diagnostic-*,
+  clang-analyzer-*,
+  cert-*,
+  misc-*,
+  readability-*,
+  bugprone-*,
+  modernize-*,
+  cppcoreguidelines-*,
+  google-*,
+  fuchsia-*,
+  abseil-*,
+  altera-*,
+  llvmlibc-*,
+  readability-identifier-naming
+WarningsAsErrors: ''
+HeaderFilterRegex: '.*'
+AnalyzeTemporaryDtors: false
+FormatStyle: 'file'
