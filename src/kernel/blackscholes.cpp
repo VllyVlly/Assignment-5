@@ -125,9 +125,12 @@ inline float squareRoot(float n)
     i = (i >> 1) + 0x1fc00000u;  
     float x = std::bit_cast<float>(i);
 
-    x = 0.5 * (x + (n / x));
-    x = 0.5 * (x + (n / x));
-    x = 0.5 * (x + (n / x));
+    float inv_x = 1.0f / x;
+    x = 0.5f * (x + n * inv_x);
+    inv_x = 1.0f / x;
+    x = 0.5f * (x + n * inv_x);
+    inv_x = 1.0f / x;
+    x = 0.5f * (x + n * inv_x);
     
     return x;
 } 
@@ -190,7 +193,7 @@ inline float expo(float x){
 } 
 // https://en.wikipedia.org/wiki/Horner%27s_method
 
-inline float notAssCNDF(const float &InputX) {
+float notAssCNDF(const float &InputX) {
     int sign = 0;
     float x = InputX;
     
@@ -198,10 +201,9 @@ inline float notAssCNDF(const float &InputX) {
         x = -x;
         sign = 1;
     }
-
-    const float xNPrimeofX = expo(-0.5f * x * x) * inv_sqrt_2xPI;
     const float k = 1.0f / (1.0f + p_val * x);
-
+    const float xNPrimeofX = expo(-0.5f * x * x) * inv_sqrt_2xPI;
+    
     float local =
         ((((coefficient_a5 * k + coefficient_a4) * k +
             coefficient_a3) * k +
@@ -217,21 +219,21 @@ static inline void stu_BlkSchls_one(float &CallOptionPrice,
                                       float &PutOptionPrice, float spotPrice,
                                       float strike, float rate,
                                       float volatility, float time) {
+    float NofXd1 = 0.0f;
+    float NofXd2 = 0.0f;
+
     const float xSqrtTime = squareRoot(time);
     const float xLogTerm = fast_log(spotPrice / strike);
     const float xPowerTerm = 0.5f * volatility * volatility;
+    const float FutureValueX = strike * expo(-(rate) * (time));
 
     const float xDen = volatility * xSqrtTime;
     float xD1 = ((rate + xPowerTerm) * time + xLogTerm) / xDen;
     const float xD2 = xD1 - xDen;
 
-    float NofXd1 = 0.0f;
-    float NofXd2 = 0.0f;
-
     NofXd1 = notAssCNDF(xD1);
     NofXd2 = notAssCNDF(xD2);
 
-    const float FutureValueX = strike * expo(-(rate) * (time));
     CallOptionPrice = (spotPrice * NofXd1) - (FutureValueX * NofXd2);
     PutOptionPrice = CallOptionPrice - spotPrice + FutureValueX;
 }

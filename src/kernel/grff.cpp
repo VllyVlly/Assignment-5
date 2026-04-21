@@ -78,6 +78,50 @@ void naive_grff(grff_args& args) {
 // TODO: Student Implementation
 // -------------------------------------------------------------------------
 void stu_grff(grff_args& args) {
+    size_t n = args.a_features.size();
+    
+    // Intermediate buffers
+    std::vector<float> Smooth_A(n);
+
+    // Stage 1: Gate
+    float sum_a = 0.0f;
+    float prev = 0.0f;
+    for (size_t i = 0; i < n; ++i){
+        float a = args.a_features[i];
+        float b = args.b_features[i];
+        float temp = a*b;
+
+        float tempG = 0.5f * ((temp) / (1.0f + std::abs(temp)) + 1.0f);
+        float tempA = a + tempG;
+        sum_a += tempA;
+
+        if(i == 0){
+            Smooth_A[i] = tempA;
+        } 
+        else {
+            Smooth_A[i] = (tempA + prev) * 0.5f; 
+        }
+
+        prev = tempA;
+    }
+    float avg_a = sum_a / static_cast<float>(n);
+
+    // Stage 5: Update B (Suppression)
+    for (size_t i = 0; i < n; ++i){
+        float a = args.a_features[i];
+        float b = args.b_features[i];
+        float temp = a*b;
+        float tempG = 0.5f * ((temp) / (1.0f + std::abs(temp)) + 1.0f);
+
+
+        float smoothA = Smooth_A[i];
+        float temp2 = 1.0f + std::abs(smoothA);
+        float tempB = args.b_features[i] * (1.0f - tempG) * avg_a;
+        float tempC = args.c_features[i] + (smoothA / (temp2));
+        float tempE = (smoothA * tempC + tempB) / (temp2);
+        float result = tempC - tempE;
+        args.f_output[i] = std::max(result, 0.0f);
+    } 
 
 }
 

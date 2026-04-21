@@ -5,6 +5,10 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+# BONUS CMAKELISTS
+# PLEASE CHANGE LATER
+# PUT IN DIFFERENT FOLDER
+
 file(GLOB KERNEL_SOURCES CONFIGURE_DEPENDS
     "${CMAKE_SOURCE_DIR}/src/kernel/*.cpp"
 )
@@ -18,7 +22,7 @@ target_include_directories(kernels
 
 target_compile_options(kernels
     PRIVATE
-        -ffast-math -O2 -Wall -g -fno-omit-frame-pointer
+        -ffast-math -O3 -Wall -g -fno-omit-frame-pointer
 )
 
 set_source_files_properties(src/kernel/bitwise.cpp 
@@ -38,7 +42,7 @@ set_source_files_properties(src/kernel/blackscholes.cpp
 )
 
 set_source_files_properties(src/kernel/grff.cpp 
-    PROPERTIES COMPILE_FLAGS "-ffast-math -Wall -g -fno-omit-frame-pointer -O3"
+    PROPERTIES COMPILE_FLAGS "-ffast-math -Wall -g -fno-omit-frame-pointer -O3 -march=native -mtune=native"
 )
 
 

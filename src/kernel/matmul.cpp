@@ -5,6 +5,7 @@
 #include <random>
 #include <stdexcept>
 #include <vector>
+
 #include <thread>
 
 void initialize_matmul(matmul_args& args, int n, uint32_t seed) {
@@ -57,15 +58,42 @@ void stu_matmul(std::vector<float>& C,
         }
     }
 
-    for(int i = 0; i < n; i++){ 
-        for(int j = 0; j < n; j++){ 
-            float sum = 0.0f;
-            for(int k = 0; k < n; k++){ 
-                sum += A[i*n + k]*B_T[j*n + k]; 
-            } 
-            C[i*n + j] = sum;
-        } 
-    }       
+    int ROW_BLOCK = 8;
+    const int num_blocks = (n + ROW_BLOCK - 1) / ROW_BLOCK;
+
+    unsigned hw = std::thread::hardware_concurrency();
+    if (hw == 0) hw = 4; 
+
+    const int thread_count = std::min<int>(hw, num_blocks);
+    std::vector<std::thread> threads;
+    threads.reserve(thread_count);
+
+    auto matmul = [&](int tid) {
+        for (int block = tid; block < num_blocks; block += thread_count) {
+            int row_begin = block * ROW_BLOCK;
+            int row_end = std::min(row_begin + ROW_BLOCK, n);
+
+            for (int i = row_begin; i < row_end; ++i) {
+                int temp1 = i * n;
+                for (int j = 0; j < n; ++j) {
+                    float sum = 0.0f;
+                    const int temp2 = j * n;
+                    for (int k = 0; k < n; ++k) {
+                        sum += A[temp1 + k] * B_T[temp2 + k];
+                    }
+                    C[temp1 + j] = sum;
+                }
+            }
+        }
+    };
+
+    for (int t = 0; t < thread_count; ++t) {
+        threads.emplace_back(matmul, t);
+    }
+
+    for (auto& th : threads) {
+        th.join();
+    }
 }
 
 void naive_matmul_wrapper(void* ctx) {
