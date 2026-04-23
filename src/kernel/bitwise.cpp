@@ -56,68 +56,43 @@ void naive_bitwise(std::span<std::int8_t> result,
 }
 
 // TODO: Optimize the bitwise function
-void stu_bitwise(std::span<std::int8_t> result, std::span<const std::int8_t> a,
+void stu_bitwise(std::span<std::int8_t> result, 
+                 std::span<const std::int8_t> a,
                  std::span<const std::int8_t> b) {
-    // Implement your version...
-    constexpr std::uint8_t kMaskLo = 0x5Au;
-    constexpr std::uint8_t kMaskHi = 0xC3u;
-    constexpr std::uint64_t kMaskLo64 =
-        0x5Aull |
-        (0x5Aull << 8)  |
-        (0x5Aull << 16) |
-        (0x5Aull << 24) |
-        (0x5Aull << 32) |
-        (0x5Aull << 40) |
-        (0x5Aull << 48) |
-        (0x5Aull << 56);
+    constexpr std::uint8_t MaskA = 0xA5u;
+    constexpr std::uint8_t MaskB = 0x99u;
 
-    constexpr std::uint64_t kMaskHi64 =
-        0xC3ull |
-        (0xC3ull << 8)  |
-        (0xC3ull << 16) |
-        (0xC3ull << 24) |
-        (0xC3ull << 32) |
-        (0xC3ull << 40) |
-        (0xC3ull << 48) |
-        (0xC3ull << 56);
+    constexpr unsigned __int128 MaskA128 =
+        (static_cast<unsigned __int128>(0xA5A5A5A5A5A5A5A5ull) << 64) |
+         static_cast<unsigned __int128>(0xA5A5A5A5A5A5A5A5ull);
+
+    constexpr unsigned __int128 MaskB128 =
+        (static_cast<unsigned __int128>(0x9999999999999999ull) << 64) |
+         static_cast<unsigned __int128>(0x9999999999999999ull);
 
     const std::size_t n = std::min({result.size(), a.size(), b.size()});
 
     size_t i = 0;
 
-    for (; i + 8 <= n; i += 8) {
-
-        std::uint64_t combA;
-        std::uint64_t combB;
+    for (; i + 16 <= n; i += 16) {
+        unsigned __int128 combA;
+        unsigned __int128 combB;
         std::memcpy(&combA, a.data() + i, sizeof(combA));
         std::memcpy(&combB, b.data() + i, sizeof(combB));
 
-        const auto shared = static_cast<std::uint64_t>(combA & combB);
-        const auto either = static_cast<std::uint64_t>(combA | combB);
-        const auto diff = static_cast<std::uint64_t>(combA ^ combB);
+        const auto either = static_cast<unsigned __int128>(combA | combB);
+        const auto mixed =
+            static_cast<unsigned __int128>(MaskA128 ^ (either & MaskB128));
 
-        const auto mixed0 =
-            static_cast<std::uint64_t>((diff & kMaskLo64) | (~shared & ~kMaskLo64));
-        const auto mixed1 = static_cast<std::uint64_t>(
-            ((either ^ kMaskHi64) & (shared | ~kMaskHi64)) ^ diff);
-
-        auto mixed = (mixed0 ^ mixed1);
         std::memcpy(result.data() + i, &mixed, sizeof(mixed));
     }
 
     for (; i < n; i++) {
         const auto ua = static_cast<std::uint8_t>(a[i]);
         const auto ub = static_cast<std::uint8_t>(b[i]);
-
-        const auto shared = static_cast<std::uint8_t>(ua & ub);
         const auto either = static_cast<std::uint8_t>(ua | ub);
-        const auto diff = static_cast<std::uint8_t>(ua ^ ub);
-        const auto mixed0 =
-            static_cast<std::uint8_t>((diff & kMaskLo) | (~shared & ~kMaskLo));
-        const auto mixed1 = static_cast<std::uint8_t>(
-            ((either ^ kMaskHi) & (shared | ~kMaskHi)) ^ diff);
 
-        result[i] = static_cast<std::int8_t>(mixed0 ^ mixed1);
+        result[i] = static_cast<std::int8_t>(MaskA ^ (either & MaskB));
     }
 
     return;

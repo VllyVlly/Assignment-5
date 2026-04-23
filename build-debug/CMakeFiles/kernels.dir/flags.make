@@ -4,17 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I"/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/include"
+CXX_INCLUDES = -I/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/include
 
-CXX_FLAGS = -DDEBUG -std=c++23 -ffast-math -O3 -Wall -g -fno-omit-frame-pointer
-
-# Custom flags: CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.o_FLAGS = -ffast-math -Wall -g -fno-omit-frame-pointer -O3 -march=native -fprefetch-loop-arrays
-
-# Custom flags: CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o_FLAGS = -ffast-math -Wall -g -fno-omit-frame-pointer -O3 -march=native
-
-# Custom flags: CMakeFiles/kernels.dir/src/kernel/grff.cpp.o_FLAGS = -ffast-math -Wall -g -fno-omit-frame-pointer -O3 -march=native -mtune=native
-
-# Custom flags: CMakeFiles/kernels.dir/src/kernel/matmul.cpp.o_FLAGS = -ffast-math -Wall -g -fno-omit-frame-pointer -O3
-
-# Custom flags: CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.o_FLAGS = -ffast-math -Wall -g -fno-omit-frame-pointer -O3
+CXX_FLAGS = -DDEBUG -std=c++23 -ffast-math -O2 -Wall -g -fno-omit-frame-pointer
 

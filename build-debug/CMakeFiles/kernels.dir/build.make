@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5"
+CMAKE_SOURCE_DIR = /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/build-debug"
+CMAKE_BINARY_DIR = /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/kernels.dir/depend.make
@@ -70,144 +70,144 @@ include CMakeFiles/kernels.dir/progress.make
 include CMakeFiles/kernels.dir/flags.make
 
 CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.o: CMakeFiles/kernels.dir/flags.make
-CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.o: /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment\ 5/src/kernel/bitwise.cpp
+CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.o: /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/bitwise.cpp
 CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.o: CMakeFiles/kernels.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -ffast-math -Wall -g -fno-omit-frame-pointer -O3 -march=native -fprefetch-loop-arrays -MD -MT CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.o -c "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/bitwise.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.o -c /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/bitwise.cpp
 
 CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -ffast-math -Wall -g -fno-omit-frame-pointer -O3 -march=native -fprefetch-loop-arrays -E "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/bitwise.cpp" > CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/bitwise.cpp > CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.i
 
 CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -ffast-math -Wall -g -fno-omit-frame-pointer -O3 -march=native -fprefetch-loop-arrays -S "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/bitwise.cpp" -o CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/bitwise.cpp -o CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.s
 
 CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o: CMakeFiles/kernels.dir/flags.make
-CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o: /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment\ 5/src/kernel/blackscholes.cpp
+CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o: /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/blackscholes.cpp
 CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o: CMakeFiles/kernels.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -ffast-math -Wall -g -fno-omit-frame-pointer -O3 -march=native -MD -MT CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o -c "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/blackscholes.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o -c /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/blackscholes.cpp
 
 CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -ffast-math -Wall -g -fno-omit-frame-pointer -O3 -march=native -E "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/blackscholes.cpp" > CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/blackscholes.cpp > CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.i
 
 CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -ffast-math -Wall -g -fno-omit-frame-pointer -O3 -march=native -S "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/blackscholes.cpp" -o CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/blackscholes.cpp -o CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.s
 
 CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.o: CMakeFiles/kernels.dir/flags.make
-CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.o: /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment\ 5/src/kernel/filter_gradient.cpp
+CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.o: /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/filter_gradient.cpp
 CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.o: CMakeFiles/kernels.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.o -c "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/filter_gradient.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.o -c /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/filter_gradient.cpp
 
 CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/filter_gradient.cpp" > CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/filter_gradient.cpp > CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.i
 
 CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/filter_gradient.cpp" -o CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/filter_gradient.cpp -o CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.s
 
 CMakeFiles/kernels.dir/src/kernel/graph.cpp.o: CMakeFiles/kernels.dir/flags.make
-CMakeFiles/kernels.dir/src/kernel/graph.cpp.o: /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment\ 5/src/kernel/graph.cpp
+CMakeFiles/kernels.dir/src/kernel/graph.cpp.o: /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/graph.cpp
 CMakeFiles/kernels.dir/src/kernel/graph.cpp.o: CMakeFiles/kernels.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/kernels.dir/src/kernel/graph.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/graph.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/graph.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/graph.cpp.o -c "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/graph.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/kernels.dir/src/kernel/graph.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/graph.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/graph.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/graph.cpp.o -c /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/graph.cpp
 
 CMakeFiles/kernels.dir/src/kernel/graph.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kernels.dir/src/kernel/graph.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/graph.cpp" > CMakeFiles/kernels.dir/src/kernel/graph.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/graph.cpp > CMakeFiles/kernels.dir/src/kernel/graph.cpp.i
 
 CMakeFiles/kernels.dir/src/kernel/graph.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kernels.dir/src/kernel/graph.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/graph.cpp" -o CMakeFiles/kernels.dir/src/kernel/graph.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/graph.cpp -o CMakeFiles/kernels.dir/src/kernel/graph.cpp.s
 
 CMakeFiles/kernels.dir/src/kernel/grff.cpp.o: CMakeFiles/kernels.dir/flags.make
-CMakeFiles/kernels.dir/src/kernel/grff.cpp.o: /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment\ 5/src/kernel/grff.cpp
+CMakeFiles/kernels.dir/src/kernel/grff.cpp.o: /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/grff.cpp
 CMakeFiles/kernels.dir/src/kernel/grff.cpp.o: CMakeFiles/kernels.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/kernels.dir/src/kernel/grff.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -ffast-math -Wall -g -fno-omit-frame-pointer -O3 -march=native -mtune=native -MD -MT CMakeFiles/kernels.dir/src/kernel/grff.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/grff.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/grff.cpp.o -c "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/grff.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/kernels.dir/src/kernel/grff.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/grff.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/grff.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/grff.cpp.o -c /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/grff.cpp
 
 CMakeFiles/kernels.dir/src/kernel/grff.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kernels.dir/src/kernel/grff.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -ffast-math -Wall -g -fno-omit-frame-pointer -O3 -march=native -mtune=native -E "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/grff.cpp" > CMakeFiles/kernels.dir/src/kernel/grff.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/grff.cpp > CMakeFiles/kernels.dir/src/kernel/grff.cpp.i
 
 CMakeFiles/kernels.dir/src/kernel/grff.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kernels.dir/src/kernel/grff.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -ffast-math -Wall -g -fno-omit-frame-pointer -O3 -march=native -mtune=native -S "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/grff.cpp" -o CMakeFiles/kernels.dir/src/kernel/grff.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/grff.cpp -o CMakeFiles/kernels.dir/src/kernel/grff.cpp.s
 
 CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.o: CMakeFiles/kernels.dir/flags.make
-CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.o: /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment\ 5/src/kernel/image_proc.cpp
+CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.o: /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/image_proc.cpp
 CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.o: CMakeFiles/kernels.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.o -c "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/image_proc.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.o -c /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/image_proc.cpp
 
 CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/image_proc.cpp" > CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/image_proc.cpp > CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.i
 
 CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/image_proc.cpp" -o CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/image_proc.cpp -o CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.s
 
 CMakeFiles/kernels.dir/src/kernel/matmul.cpp.o: CMakeFiles/kernels.dir/flags.make
-CMakeFiles/kernels.dir/src/kernel/matmul.cpp.o: /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment\ 5/src/kernel/matmul.cpp
+CMakeFiles/kernels.dir/src/kernel/matmul.cpp.o: /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/matmul.cpp
 CMakeFiles/kernels.dir/src/kernel/matmul.cpp.o: CMakeFiles/kernels.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/kernels.dir/src/kernel/matmul.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -ffast-math -Wall -g -fno-omit-frame-pointer -O3 -MD -MT CMakeFiles/kernels.dir/src/kernel/matmul.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/matmul.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/matmul.cpp.o -c "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/matmul.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/kernels.dir/src/kernel/matmul.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/matmul.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/matmul.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/matmul.cpp.o -c /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/matmul.cpp
 
 CMakeFiles/kernels.dir/src/kernel/matmul.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kernels.dir/src/kernel/matmul.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -ffast-math -Wall -g -fno-omit-frame-pointer -O3 -E "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/matmul.cpp" > CMakeFiles/kernels.dir/src/kernel/matmul.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/matmul.cpp > CMakeFiles/kernels.dir/src/kernel/matmul.cpp.i
 
 CMakeFiles/kernels.dir/src/kernel/matmul.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kernels.dir/src/kernel/matmul.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -ffast-math -Wall -g -fno-omit-frame-pointer -O3 -S "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/matmul.cpp" -o CMakeFiles/kernels.dir/src/kernel/matmul.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/matmul.cpp -o CMakeFiles/kernels.dir/src/kernel/matmul.cpp.s
 
 CMakeFiles/kernels.dir/src/kernel/relu.cpp.o: CMakeFiles/kernels.dir/flags.make
-CMakeFiles/kernels.dir/src/kernel/relu.cpp.o: /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment\ 5/src/kernel/relu.cpp
+CMakeFiles/kernels.dir/src/kernel/relu.cpp.o: /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/relu.cpp
 CMakeFiles/kernels.dir/src/kernel/relu.cpp.o: CMakeFiles/kernels.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/kernels.dir/src/kernel/relu.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/relu.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/relu.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/relu.cpp.o -c "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/relu.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/kernels.dir/src/kernel/relu.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/relu.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/relu.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/relu.cpp.o -c /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/relu.cpp
 
 CMakeFiles/kernels.dir/src/kernel/relu.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kernels.dir/src/kernel/relu.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/relu.cpp" > CMakeFiles/kernels.dir/src/kernel/relu.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/relu.cpp > CMakeFiles/kernels.dir/src/kernel/relu.cpp.i
 
 CMakeFiles/kernels.dir/src/kernel/relu.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kernels.dir/src/kernel/relu.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/relu.cpp" -o CMakeFiles/kernels.dir/src/kernel/relu.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/relu.cpp -o CMakeFiles/kernels.dir/src/kernel/relu.cpp.s
 
 CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.o: CMakeFiles/kernels.dir/flags.make
-CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.o: /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment\ 5/src/kernel/sparse_spmm.cpp
+CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.o: /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/sparse_spmm.cpp
 CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.o: CMakeFiles/kernels.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.o -c "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/sparse_spmm.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.o -c /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/sparse_spmm.cpp
 
 CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/sparse_spmm.cpp" > CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/sparse_spmm.cpp > CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.i
 
 CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/sparse_spmm.cpp" -o CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/sparse_spmm.cpp -o CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.s
 
 CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.o: CMakeFiles/kernels.dir/flags.make
-CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.o: /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment\ 5/src/kernel/trace_replay.cpp
+CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.o: /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/trace_replay.cpp
 CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.o: CMakeFiles/kernels.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -ffast-math -Wall -g -fno-omit-frame-pointer -O3 -MD -MT CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.o -c "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/trace_replay.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.o -c /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/trace_replay.cpp
 
 CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -ffast-math -Wall -g -fno-omit-frame-pointer -O3 -E "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/trace_replay.cpp" > CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/trace_replay.cpp > CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.i
 
 CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -ffast-math -Wall -g -fno-omit-frame-pointer -O3 -S "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/trace_replay.cpp" -o CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/trace_replay.cpp -o CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.s
 
 # Object files for target kernels
 kernels_OBJECTS = \
@@ -237,7 +237,7 @@ libkernels.a: CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.o
 libkernels.a: CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.o
 libkernels.a: CMakeFiles/kernels.dir/build.make
 libkernels.a: CMakeFiles/kernels.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX static library libkernels.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX static library libkernels.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/kernels.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/kernels.dir/link.txt --verbose=$(VERBOSE)
 
@@ -250,6 +250,6 @@ CMakeFiles/kernels.dir/clean:
 .PHONY : CMakeFiles/kernels.dir/clean
 
 CMakeFiles/kernels.dir/depend:
-	cd "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5" "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5" "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/build-debug" "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/build-debug" "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/build-debug/CMakeFiles/kernels.dir/DependInfo.cmake" "--color=$(COLOR)"
+	cd /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5 /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5 /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/build-debug /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/build-debug /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/build-debug/CMakeFiles/kernels.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/kernels.dir/depend
 

@@ -1,8 +1,8 @@
 CMakeFiles/kernels.dir/src/kernel/graph.cpp.o: \
- /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment\ 5/src/kernel/graph.cpp \
+ /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/graph.cpp \
  /usr/include/stdc-predef.h \
- /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment\ 5/include/graph.h \
- /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment\ 5/include/bench.h \
+ /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/include/graph.h \
+ /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/include/bench.h \
  /usr/include/c++/14/cmath /usr/include/c++/14/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/14/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/14/bits/os_defines.h \

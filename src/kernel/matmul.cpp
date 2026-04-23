@@ -46,53 +46,29 @@ void naive_matmul(std::vector<float>& C,
     }
 }
 
-void stu_matmul(std::vector<float>& C,
-                const std::vector<float>& A,
-                const std::vector<float>& B,
-                int n) {
-    std::vector<float> B_T(n * n);
+void stu_matmul(std::vector<float>& C, 
+                const std::vector<float>& A, 
+                const std::vector<float>& B, 
+                int n) { 
+                    
+    std::fill(C.begin(), C.end(), 0.0f);
 
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            B_T[i * n + j] = B[j * n + i];  
-        }
-    }
-
-    int ROW_BLOCK = 8;
-    const int num_blocks = (n + ROW_BLOCK - 1) / ROW_BLOCK;
-
-    unsigned hw = std::thread::hardware_concurrency();
-    if (hw == 0) hw = 4; 
-
-    const int thread_count = std::min<int>(hw, num_blocks);
-    std::vector<std::thread> threads;
-    threads.reserve(thread_count);
-
-    auto matmul = [&](int tid) {
-        for (int block = tid; block < num_blocks; block += thread_count) {
-            int row_begin = block * ROW_BLOCK;
-            int row_end = std::min(row_begin + ROW_BLOCK, n);
-
-            for (int i = row_begin; i < row_end; ++i) {
-                int temp1 = i * n;
-                for (int j = 0; j < n; ++j) {
-                    float sum = 0.0f;
-                    const int temp2 = j * n;
-                    for (int k = 0; k < n; ++k) {
-                        sum += A[temp1 + k] * B_T[temp2 + k];
+    const int BLOCK_SIZE = 16;
+    for (int ii = 0; ii < n; ii += BLOCK_SIZE) {
+        for (int kk = 0; kk < n; kk += BLOCK_SIZE) {
+            for (int i = ii; i < std::min(ii + BLOCK_SIZE, n); i++) {
+                int row = i*n;
+                for (int k = kk; k < std::min(kk + BLOCK_SIZE, n); k++) {
+                    float a = A[row + k];
+                    int row2 = k*n;
+                    for (int jj = 0; jj < n; jj += BLOCK_SIZE) {
+                        for (int j = jj; j < std::min(jj + BLOCK_SIZE, n); j++) {
+                            C[row + j] += a * B[row2 + j];
+                        }
                     }
-                    C[temp1 + j] = sum;
                 }
             }
         }
-    };
-
-    for (int t = 0; t < thread_count; ++t) {
-        threads.emplace_back(matmul, t);
-    }
-
-    for (auto& th : threads) {
-        th.join();
     }
 }
 
