@@ -113,12 +113,12 @@ void stu_grff(grff_args& args) {
         float temp = a*b;
         float tempG = 0.5f * ((temp) / (1.0f + std::abs(temp)) + 1.0f);
 
-
         float smoothA = Smooth_A[i];
         float temp2 = 1.0f + std::abs(smoothA);
         float tempB = args.b_features[i] * (1.0f - tempG) * avg_a;
-        float tempC = args.c_features[i] + (smoothA / (temp2));
-        float tempE = (smoothA * tempC + tempB) / (temp2);
+        float inv_temp2 = 1.0f / temp2;
+        float tempC = args.c_features[i] + smoothA * inv_temp2;
+        float tempE = (smoothA * tempC + tempB) * inv_temp2;
         float result = tempC - tempE;
         args.f_output[i] = std::max(result, 0.0f);
     } 
