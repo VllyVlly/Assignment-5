@@ -220,4 +220,5 @@ CMakeFiles/single_bench.dir/src/main/single_bench.cpp.o: \
  /usr/include/c++/14/tr1/riemann_zeta.tcc /usr/include/c++/14/utility \
  /usr/include/c++/14/bits/stl_relops.h \
  /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/include/relu.h \
- /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/include/bench.h
+ /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/include/bench.h \
+ /mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/include/blackscholes.h
