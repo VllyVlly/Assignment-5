@@ -129,8 +129,6 @@ inline float squareRoot(float n)
     x = 0.5f * (x + n * inv_x);
     inv_x = 1.0f / x;
     x = 0.5f * (x + n * inv_x);
-    inv_x = 1.0f / x;
-    x = 0.5f * (x + n * inv_x);
     
     return x;
 } 
@@ -193,25 +191,58 @@ inline float expo(float x){
 } 
 // https://en.wikipedia.org/wiki/Horner%27s_method
 
-float notAssCNDF(const float &InputX) {
-    int sign = 0;
-    float x = InputX;
-    
-    if (x < 0.0f) {
-        x = -x;
-        sign = 1;
-    }
+inline float expo_neg(float x) {
+    if (x < -87.0f) return 0.0f;
+
+    const int n = static_cast<int>(x * inv_ln2 - 0.5f);
+    const float r = x - static_cast<float>(n) * ln2;
+
+    const float p =
+        1.0f + r * (
+        1.0f + r * (
+        0.5f + r * (
+        0.16666667f + r * (
+        0.041666667f + r * (
+        0.0083333333f + r * (
+        0.0013888889f
+    ))))));
+
+    union {
+        std::uint32_t u;
+        float f;
+    } v;
+
+    if (n < -126) return 0.0f;
+
+    v.u = static_cast<std::uint32_t>(n + 127) << 23;
+    return p * v.f;
+}
+
+inline float exp_small_neg(float x) {
+    const float x2 = x * x;
+    return 1.0f + x + x2 * (
+        0.5f + x * (
+        0.16666667f + x * (
+        0.041666667f + x * (
+        0.0083333333f))));
+}
+
+static inline float notAssCNDF(float x) {
+    const bool neg = x < 0.0f;
+    x = std::abs(x);
+
     const float k = 1.0f / (1.0f + p_val * x);
-    const float xNPrimeofX = expo(-0.5f * x * x) * inv_sqrt_2xPI;
-    
-    float local =
+    const float pdf = expo_neg(-0.5f * x * x) * inv_sqrt_2xPI;
+
+    float poly =
         ((((coefficient_a5 * k + coefficient_a4) * k +
             coefficient_a3) * k +
             coefficient_a2) * k +
             coefficient_a1) * k;
 
-    local = 1.0f - local * xNPrimeofX;
-    return (sign ? (1.0f - local) : local);
+    float cdf = 1.0f - poly * pdf;
+
+    return neg ? (1.0f - cdf) : cdf;
 }
 // https://en.wikipedia.org/wiki/Horner%27s_method
 
@@ -225,17 +256,21 @@ static inline void stu_BlkSchls_one(float &CallOptionPrice,
     const float xSqrtTime = squareRoot(time);
     const float xLogTerm = fast_log(spotPrice / strike);
     const float xPowerTerm = 0.5f * volatility * volatility;
-    const float FutureValueX = strike * expo(-(rate) * (time));
+    const float FutureValueX = strike * exp_small_neg(-(rate) * (time));
 
     const float xDen = volatility * xSqrtTime;
-    float xD1 = ((rate + xPowerTerm) * time + xLogTerm) / xDen;
+    const float invDen = 1.0f / xDen;
+    float xD1 = ((rate + xPowerTerm) * time + xLogTerm) * invDen;
     const float xD2 = xD1 - xDen;
 
     NofXd1 = notAssCNDF(xD1);
     NofXd2 = notAssCNDF(xD2);
 
     CallOptionPrice = (spotPrice * NofXd1) - (FutureValueX * NofXd2);
-    PutOptionPrice = CallOptionPrice - spotPrice + FutureValueX;
+
+    const float NegNofXd1 = 1.0f - NofXd1;
+    const float NegNofXd2 = 1.0f - NofXd2;
+    PutOptionPrice = (FutureValueX * NegNofXd2) - (spotPrice * NegNofXd1);
 }
 
 void stu_BlkSchls(std::vector<float> &CallOptionPrice,

@@ -56,7 +56,8 @@ void naive_bitwise(std::span<std::int8_t> result,
 }
 
 // TODO: Optimize the bitwise function
-void stu_bitwise(std::span<std::int8_t> result, std::span<const std::int8_t> a,
+void stu_bitwise(std::span<std::int8_t> result, 
+                 std::span<const std::int8_t> a,
                  std::span<const std::int8_t> b) {
     constexpr std::uint8_t MaskA = 0xA5u;
     constexpr std::uint8_t MaskB = 0x99u;
