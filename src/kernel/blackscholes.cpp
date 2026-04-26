@@ -190,6 +190,8 @@ inline float expo(float x){
     return p*pow2i(n);
 } 
 // https://en.wikipedia.org/wiki/Horner%27s_method
+// https://stackoverflow.com/questions/47025373/fastest-implementation-of-the-natural-exponential-function-using-sse#:~:text=The%20basic%20idea%20is%20to,so%20this%20solution%20is%20efficient.
+// https://stackoverflow.com/questions/6984440/approximate-ex
 
 inline float expo_neg(float x) {
     if (x < -87.0f) return 0.0f;
