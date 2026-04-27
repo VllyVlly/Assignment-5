@@ -25,7 +25,7 @@ target_compile_options(kernels
 )
 
 set_source_files_properties(src/kernel/bitwise.cpp 
-    PROPERTIES COMPILE_FLAGS "-ffast-math -Wall -g -fno-omit-frame-pointer -O3 -march=native -fprefetch-loop-arrays"
+    PROPERTIES COMPILE_FLAGS "-ffast-math -Wall -g -fno-omit-frame-pointer -O3 -march=native -fprefetch-loop-arrays -mavx2"
 )
 
 set_source_files_properties(src/kernel/matmul.cpp 
@@ -56,7 +56,6 @@ target_include_directories(kernels PUBLIC include)
 # add_executable(run_all src/main/run_all.cpp)
 # target_link_libraries(run_all PRIVATE kernels)
 
-# DEEPSEEK Suggestion for Windows
 add_executable(single_bench src/main/single_bench.cpp)
 target_link_libraries(single_bench kernels stdc++exp)
 

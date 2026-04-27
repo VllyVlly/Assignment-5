@@ -3,20 +3,20 @@
 cmake_policy(SET CMP0009 NEW)
 
 # KERNEL_SOURCES at CMakeLists.txt:8 (file)
-file(GLOB NEW_GLOB LIST_DIRECTORIES true "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/*.cpp")
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/*.cpp")
 set(OLD_GLOB
-  "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/bitwise.cpp"
-  "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/blackscholes.cpp"
-  "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/filter_gradient.cpp"
-  "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/graph.cpp"
-  "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/grff.cpp"
-  "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/image_proc.cpp"
-  "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/matmul.cpp"
-  "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/relu.cpp"
-  "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/sparse_spmm.cpp"
-  "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/src/kernel/trace_replay.cpp"
+  "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/bitwise.cpp"
+  "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/blackscholes.cpp"
+  "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/filter_gradient.cpp"
+  "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/graph.cpp"
+  "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/grff.cpp"
+  "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/image_proc.cpp"
+  "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/matmul.cpp"
+  "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/relu.cpp"
+  "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/sparse_spmm.cpp"
+  "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/src/kernel/trace_replay.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/build/CMakeFiles/cmake.verify_globs")
 endif()

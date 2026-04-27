@@ -7,23 +7,28 @@
 
 #include "bench.h"
 #include "relu.h"
+#include "blackscholes.h"
 
 
 int main() {
     std::uint32_t seed = 12345u;
-    constexpr size_t relu_size = 1024000;
-    relu_args relu_args_naive;
-    initialize_relu(&relu_args_naive, relu_size, seed);
-    std::println("\tReLU: vector length={}", relu_size);
+    
+    blackscholes_args black_args;
+    initialize_blackscholes(black_args, 81920, seed);
+    blackscholes_args black_args_stu;
+    initialize_blackscholes(black_args_stu, 81920, seed);
+
+    std::cout << "\tBlack-Scholes options: " << black_args.spot_price.size()
+              << '\n';
 
     std::vector<bench_t> benchmarks = {
-                {"ReLU (Naive)",
-                 naive_relu_wrapper,
-                 naive_relu_wrapper,
-                 relu_check,
-                 &relu_args_naive,
-                 &relu_args_naive,
-                 BASELINE_RELU},
+                {"Black-Scholes (Naive)",
+                stu_BlkSchls_wrapper,
+                naive_BlkSchls_wrapper,
+                BlkSchls_check,
+                &black_args_stu,
+                &black_args,
+                BASELINE_BLACKSCHOLES},
     };
     std::cout << "\nRunning Benchmarks...\n";
     std::cout << "--------------------------------------------------------\n";

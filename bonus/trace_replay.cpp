@@ -3,6 +3,11 @@
 #include <algorithm>
 #include <stdexcept>
 
+#include <vector>
+#include <thread>
+#include <algorithm>
+#include <cstdint>
+
 namespace {
 
 static inline uint64_t trace_replay_cost(const RequestRecord& record) {
@@ -89,23 +94,118 @@ void naive_trace_replay(uint64_t& out,
     out = total;
 }
 
+static inline uint64_t fast_pow_u64(uint64_t base, size_t exp) {
+    uint64_t result = 1;
+
+    while (exp > 0) {
+        if (exp & 1) {
+            result *= base;
+        }
+
+        base *= base;
+        exp >>= 1;
+    }
+
+    return result;
+}
+
 void stu_trace_replay(uint64_t& out,
                       const std::vector<RequestRecord>& records,
                       const std::vector<uint32_t>& trace) {
-    // TODO: Implement your version, and call it in stu_trace_replay_wrapper
-    uint64_t total = 0;
     const uint64_t order_mix = 1315423911ull;
-    size_t n = trace.size();
-    
-    for (size_t i = 0; i < trace.size(); ++i) {
-        size_t temp = i + 32;
-        if (temp < n) {
-            __builtin_prefetch(&records[trace[temp]], 0, 3);
-        }
-        total = total * order_mix + trace_replay_cost(records[trace[i]]);
+    const size_t n = trace.size();
+
+    if (n == 0) {
+        out = 0;
+        return;
     }
 
-    out = total;  
+    constexpr size_t MIN_WORK_PER_THREAD = 4096;
+
+    unsigned int hw = std::thread::hardware_concurrency();
+    if (hw == 0) hw = 4;
+
+    size_t num_threads = 1;
+
+    if (n >= MIN_WORK_PER_THREAD) {
+        num_threads = std::min<size_t>(
+            hw,
+            (n + MIN_WORK_PER_THREAD - 1) / MIN_WORK_PER_THREAD
+        );
+    }
+
+    if (num_threads <= 1) {
+        uint64_t total = 0;
+
+        for (size_t i = 0; i < n; ++i) {
+            const size_t pf = i + 32;
+            if (pf < n) {
+                __builtin_prefetch(&records[trace[pf]], 0, 1);
+            }
+
+            total = total * order_mix + trace_replay_cost(records[trace[i]]);
+        }
+
+        out = total;
+        return;
+    }
+
+    struct ChunkResult {
+        uint64_t hash;
+        uint64_t power;
+        size_t length;
+    };
+
+    std::vector<ChunkResult> partials(num_threads);
+
+    std::vector<std::thread> threads;
+    threads.reserve(num_threads);
+
+    const size_t chunk_size = (n + num_threads - 1) / num_threads;
+
+    for (size_t tid = 0; tid < num_threads; ++tid) {
+        const size_t begin = tid * chunk_size;
+        const size_t end = std::min(n, begin + chunk_size);
+
+        if (begin >= end) {
+            partials[tid] = {0, 1, 0};
+            continue;
+        }
+
+        threads.emplace_back([&, tid, begin, end]() {
+            uint64_t local = 0;
+
+            for (size_t i = begin; i < end; ++i) {
+                const size_t pf = i + 32;
+
+                if (pf < end) {
+                    __builtin_prefetch(&records[trace[pf]], 0, 1);
+                }
+
+                local = local * order_mix + trace_replay_cost(records[trace[i]]);
+            }
+
+            const size_t len = end - begin;
+
+            partials[tid].hash = local;
+            partials[tid].power = fast_pow_u64(order_mix, len);
+            partials[tid].length = len;
+        });
+    }
+
+    for (auto& th : threads) {
+        th.join();
+    }
+
+    uint64_t total = 0;
+
+    for (size_t tid = 0; tid < num_threads; ++tid) {
+        if (partials[tid].length == 0) continue;
+
+        total = total * partials[tid].power + partials[tid].hash;
+    }
+
+    out = total;
 }
 
 void naive_trace_replay_wrapper(void* ctx) {

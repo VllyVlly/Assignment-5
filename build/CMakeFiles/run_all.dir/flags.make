@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I"/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment 5/include"
+CXX_INCLUDES = -I/mnt/d/Virelle/Projects/Schoolwork/CSC3060/Assignment_5/include
 
 CXX_FLAGS = -std=c++23
 

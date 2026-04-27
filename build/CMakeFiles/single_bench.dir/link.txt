@@ -1,1 +1,1 @@
-/usr/bin/c++ CMakeFiles/single_bench.dir/src/main/single_bench.cpp.o -o single_bench  libkernels.a -lstdc++exp 
+/usr/bin/c++ CMakeFiles/single_bench.dir/src/main/single_bench.cpp.o -o single_bench  libkernels.a 
