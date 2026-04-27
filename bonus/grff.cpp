@@ -3,6 +3,9 @@
 #include <cmath>
 #include <random>
 
+#include <vector>
+#include <thread>
+
 void initialize_grff(grff_args *args, const size_t size, const std::uint_fast64_t seed) {
     if (!args) return;
 
@@ -78,51 +81,141 @@ void naive_grff(grff_args& args) {
 // TODO: Student Implementation
 // -------------------------------------------------------------------------
 void stu_grff(grff_args& args) {
-    size_t n = args.a_features.size();
-    
-    // Intermediate buffers
+    const size_t n = args.a_features.size();
+    if (n == 0) return;
+
     std::vector<float> Smooth_A(n);
 
-    // Stage 1: Gate
+    auto compute_tempA = [&](size_t i) -> float {
+        const float a = args.a_features[i];
+        const float b = args.b_features[i];
+
+        const float temp = a * b;
+        const float tempG = 0.5f * (temp / (1.0f + std::abs(temp)) + 1.0f);
+
+        return a + tempG;
+    };
+
+    constexpr size_t MIN_WORK_PER_THREAD = 4096;
+
+    unsigned int hw = std::thread::hardware_concurrency();
+    if (hw == 0) hw = 4;
+
+    size_t num_threads = 1;
+    if (n >= MIN_WORK_PER_THREAD) {
+        num_threads = std::min<size_t>(
+            hw,
+            (n + MIN_WORK_PER_THREAD - 1) / MIN_WORK_PER_THREAD
+        );
+    }
+
+    const size_t chunk_size = (n + num_threads - 1) / num_threads;
+
     float sum_a = 0.0f;
-    float prev = 0.0f;
-    for (size_t i = 0; i < n; ++i){
-        float a = args.a_features[i];
-        float b = args.b_features[i];
-        float temp = a*b;
 
-        float tempG = 0.5f * ((temp) / (1.0f + std::abs(temp)) + 1.0f);
-        float tempA = a + tempG;
-        sum_a += tempA;
+    if (num_threads <= 1) {
+        float prev = 0.0f;
 
-        if(i == 0){
-            Smooth_A[i] = tempA;
-        } 
-        else {
-            Smooth_A[i] = (tempA + prev) * 0.5f; 
+        for (size_t i = 0; i < n; ++i) {
+            const float tempA = compute_tempA(i);
+            sum_a += tempA;
+
+            if (i == 0) {
+                Smooth_A[i] = tempA;
+            } else {
+                Smooth_A[i] = (tempA + prev) * 0.5f;
+            }
+
+            prev = tempA;
+        }
+    } else {
+        std::vector<std::thread> threads;
+        std::vector<float> partial_sums(num_threads, 0.0f);
+
+        threads.reserve(num_threads);
+
+        for (size_t tid = 0; tid < num_threads; ++tid) {
+            const size_t begin = tid * chunk_size;
+            const size_t end = std::min(n, begin + chunk_size);
+
+            if (begin >= end) break;
+
+            threads.emplace_back([&, tid, begin, end]() {
+                float local_sum = 0.0f;
+
+                float prev = 0.0f;
+                if (begin > 0) {
+                    prev = compute_tempA(begin - 1);
+                }
+
+                for (size_t i = begin; i < end; ++i) {
+                    const float tempA = compute_tempA(i);
+                    local_sum += tempA;
+
+                    if (i == 0) {
+                        Smooth_A[i] = tempA;
+                    } else {
+                        Smooth_A[i] = (tempA + prev) * 0.5f;
+                    }
+
+                    prev = tempA;
+                }
+
+                partial_sums[tid] = local_sum;
+            });
         }
 
-        prev = tempA;
+        for (auto& th : threads) {
+            th.join();
+        }
+
+        for (float x : partial_sums) {
+            sum_a += x;
+        }
     }
-    float avg_a = sum_a / static_cast<float>(n);
 
-    // Stage 5: Update B (Suppression)
-    for (size_t i = 0; i < n; ++i){
-        float a = args.a_features[i];
-        float b = args.b_features[i];
-        float temp = a*b;
-        float tempG = 0.5f * ((temp) / (1.0f + std::abs(temp)) + 1.0f);
+    const float avg_a = sum_a / static_cast<float>(n);
 
-        float smoothA = Smooth_A[i];
-        float temp2 = 1.0f + std::abs(smoothA);
-        float tempB = args.b_features[i] * (1.0f - tempG) * avg_a;
-        float inv_temp2 = 1.0f / temp2;
-        float tempC = args.c_features[i] + smoothA * inv_temp2;
-        float tempE = (smoothA * tempC + tempB) * inv_temp2;
-        float result = tempC - tempE;
-        args.f_output[i] = std::max(result, 0.0f);
-    } 
+    auto stage5_worker = [&](size_t begin, size_t end) {
+        for (size_t i = begin; i < end; ++i) {
+            const float a = args.a_features[i];
+            const float b = args.b_features[i];
 
+            const float temp = a * b;
+            const float tempG = 0.5f * (temp / (1.0f + std::abs(temp)) + 1.0f);
+
+            const float smoothA = Smooth_A[i];
+            const float temp2 = 1.0f + std::abs(smoothA);
+            const float inv_temp2 = 1.0f / temp2;
+
+            const float tempB = b * (1.0f - tempG) * avg_a;
+            const float tempC = args.c_features[i] + smoothA * inv_temp2;
+            const float tempE = (smoothA * tempC + tempB) * inv_temp2;
+
+            const float result = tempC - tempE;
+            args.f_output[i] = std::max(result, 0.0f);
+        }
+    };
+
+    if (num_threads <= 1) {
+        stage5_worker(0, n);
+    } else {
+        std::vector<std::thread> threads;
+        threads.reserve(num_threads);
+
+        for (size_t tid = 0; tid < num_threads; ++tid) {
+            const size_t begin = tid * chunk_size;
+            const size_t end = std::min(n, begin + chunk_size);
+
+            if (begin >= end) break;
+
+            threads.emplace_back(stage5_worker, begin, end);
+        }
+
+        for (auto& th : threads) {
+            th.join();
+        }
+    }
 }
 
 // -------------------------------------------------------------------------

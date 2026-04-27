@@ -5,6 +5,9 @@
 #include <cstdio>
 #include <random>
 
+#include <thread>
+#include <vector>
+
 #define inv_sqrt_2xPI 0.39894228040143270286
 #define p_val 0.2316419
 #define coefficient_a1 0.319381530
@@ -280,9 +283,6 @@ void stu_BlkSchls(std::vector<float> &CallOptionPrice,
                   const std::vector<float> &rate,
                   const std::vector<float> &volatility,
                   const std::vector<float> &time) {
-    // TODO:
-    // Implement your version for BlkSchls here, then 
-    // call it at stu_BlkSchls_wrapper()...
     const size_t n = spotPrice.size();
 
     float* call = CallOptionPrice.data();
@@ -294,8 +294,42 @@ void stu_BlkSchls(std::vector<float> &CallOptionPrice,
     const float* v = volatility.data();
     const float* t = time.data();
 
-    for (size_t i = 0; i < n; ++i) {
-        stu_BlkSchls_one(call[i], put[i], s[i], k[i], r[i], v[i], t[i]);
+    constexpr size_t MIN_WORK_PER_THREAD = 2048;
+
+    unsigned int hw = std::thread::hardware_concurrency();
+    if (hw == 0) hw = 4;
+
+    size_t num_threads = std::min<size_t>(hw, n / MIN_WORK_PER_THREAD);
+
+    if (num_threads <= 1) {
+        for (size_t i = 0; i < n; ++i) {
+            stu_BlkSchls_one(call[i], put[i], s[i], k[i], r[i], v[i], t[i]);
+        }
+        return;
+    }
+
+    std::vector<std::thread> threads;
+    threads.reserve(num_threads);
+
+    const size_t chunk_size = (n + num_threads - 1) / num_threads;
+
+    auto worker = [&](size_t begin, size_t end) {
+        for (size_t i = begin; i < end; ++i) {
+            stu_BlkSchls_one(call[i], put[i], s[i], k[i], r[i], v[i], t[i]);
+        }
+    };
+
+    for (size_t thread_id = 0; thread_id < num_threads; ++thread_id) {
+        const size_t begin = thread_id * chunk_size;
+        const size_t end = std::min(n, begin + chunk_size);
+
+        if (begin >= end) break;
+
+        threads.emplace_back(worker, begin, end);
+    }
+
+    for (auto& th : threads) {
+        th.join();
     }
 }
 
