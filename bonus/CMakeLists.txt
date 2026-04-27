@@ -37,7 +37,7 @@ set_source_files_properties(src/kernel/trace_replay.cpp
 )
 
 set_source_files_properties(src/kernel/blackscholes.cpp 
-    PROPERTIES COMPILE_FLAGS "-ffast-math -Wall -g -fno-omit-frame-pointer -O3 -march=native"
+    PROPERTIES COMPILE_FLAGS "-ffast-math -Wall -g -fno-omit-frame-pointer -O3 -march=native -mtune=native -fprefetch-loop-arrays"
 )
 
 set_source_files_properties(src/kernel/grff.cpp 
