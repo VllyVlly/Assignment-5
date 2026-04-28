@@ -44,6 +44,26 @@ set_source_files_properties(src/kernel/grff.cpp
     PROPERTIES COMPILE_FLAGS "-ffast-math -Wall -g -fno-omit-frame-pointer -O3 -march=native -mtune=native"
 )
 
+set_source_files_properties(src/kernel/filter_gradient.cpp 
+    PROPERTIES COMPILE_FLAGS "-Wall -g -O3 -march=native -mtune=native"
+)
+
+set_source_files_properties(src/kernel/relu.cpp 
+    PROPERTIES COMPILE_FLAGS "-Wall -g -O3 -march=native"
+)
+
+set_source_files_properties(src/kernel/image_proc.cpp 
+    PROPERTIES COMPILE_FLAGS "-Wall -g -O3 -march=native -ffast-math"
+)
+
+set_source_files_properties(src/kernel/sparse_spmm.cpp
+    PROPERTIES COMPILE_FLAGS "-Wall -g -O3 -march=native"
+)
+
+set_source_files_properties(src/kernel/graph.cpp
+    PROPERTIES COMPILE_FLAGS "-Wall -g -O3 -march=native"
+)
+
 
 
 target_include_directories(kernels PUBLIC include)

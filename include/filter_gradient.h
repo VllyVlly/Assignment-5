@@ -21,9 +21,24 @@ struct data_struct {
     std::vector<float> i;
 };
 
+struct prepared_filter_gradient_data {
+    const float* a = nullptr;
+    const float* b = nullptr;
+    const float* c = nullptr;
+    const float* d = nullptr;
+    const float* e = nullptr;
+    const float* f = nullptr;
+    const float* g = nullptr;
+    const float* h = nullptr;
+    const float* i = nullptr;
+};
+
 struct filter_gradient_args {
     data_struct data; 
-    // TODO: You may want to add new params at the end...
+    prepared_filter_gradient_data prepared;
+    std::vector<float> colsum_a;
+    std::vector<float> colsum_b;
+    std::vector<float> colsum_c;
 
     std::size_t width;
     std::size_t height;
@@ -37,6 +52,7 @@ struct filter_gradient_args {
 // TODO: You may need to add a function to convert data structure (not 
 // included in time measurement), then implement your version in 
 // stu_filter_gradient, whch is called by stu_filter_gradient_wrapper.
+void prepare_filter_gradient(filter_gradient_args* args);
 
 void naive_filter_gradient(float& out, const data_struct& data,
                    std::size_t width, std::size_t height);

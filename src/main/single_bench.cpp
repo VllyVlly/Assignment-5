@@ -22,13 +22,13 @@ int main() {
               << '\n';
 
     std::vector<bench_t> benchmarks = {
-                {"Black-Scholes (Naive)",
-                stu_BlkSchls_wrapper,
-                naive_BlkSchls_wrapper,
-                BlkSchls_check,
-                &black_args_stu,
-                &black_args,
-                BASELINE_BLACKSCHOLES},
+                {"ReLU (Naive)",
+                 stu_relu_wrapper,
+                 naive_relu_wrapper,
+                 relu_check,
+                 &relu_args_naive,
+                 &relu_args_naive,
+                 BASELINE_RELU},
     };
     std::cout << "\nRunning Benchmarks...\n";
     std::cout << "--------------------------------------------------------\n";
