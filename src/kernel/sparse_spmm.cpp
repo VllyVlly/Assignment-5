@@ -1,23 +1,13 @@
 #include "sparse_spmm.h"
 
 #include <array>
+#include <vector>
 #include <algorithm>
 #include <climits>
 #include <cmath>
 #include <cstdio>
 #include <random>
 #include <stdexcept>
-
-/*
-Sparse matrix LHS: csr.row x csr.col
-Transposed dense RHS: dense_cols x csr.cols
-
-Input
-    csr: [csr.row, csr.col]
-    dense_t: [dense_cols, csr.col]
-Output
-    out: [csr.row, dense_cols]
-*/
 
 static unsigned int sparse_runtime_salt() {
     static const unsigned int salt = [] {
@@ -213,20 +203,15 @@ void naive_sparse_spmm_wrapper(void *ctx) {
     csr_spmm(args.csr, args.dense_t, args.out);
 }
 
-static inline void row_16(float *acc, const float *x, float v) {
-    for (int t = 0; t < 16; ++t) {
-        acc[t] += v * x[t];
-    }
-}
-
-static void stu_csr_spmm(const CSRMatrix &csr, const std::vector<float> &dense_t,
-                         std::vector<float> &out) {
+void stu_csr_spmm(const CSRMatrix &csr, const std::vector<float> &dense_t,
+                  std::vector<float> &out) {
     if (!validate_csr(csr)) {
         throw std::invalid_argument("stu_csr_spmm: invalid CSR matrix.");
     }
 
-    const int rows = csr.rows;
-    const int cols = csr.cols;
+    const size_t rows = csr.rows;
+    const size_t cols = csr.cols;
+
     if (rows == 0 || cols == 0) {
         if (!dense_t.empty() || !out.empty()) {
             throw std::invalid_argument(
@@ -234,51 +219,95 @@ static void stu_csr_spmm(const CSRMatrix &csr, const std::vector<float> &dense_t
         }
         return;
     }
-    if (dense_t.size() % static_cast<size_t>(cols) != 0) {
+
+    if (dense_t.size() % cols != 0) {
         throw std::invalid_argument(
             "stu_csr_spmm: dense_t.size() must be a multiple of csr.cols.");
     }
 
-    const int dense_cols = static_cast<int>(dense_t.size() / cols);
-    if (dense_cols <= 0) {
+    const size_t dense_cols = dense_t.size() / cols;
+
+    if (dense_cols == 0) {
         throw std::invalid_argument("stu_csr_spmm: dense_cols must be positive.");
     }
-    if (out.size() != static_cast<size_t>(rows) * dense_cols) {
+
+    if (out.size() != rows * dense_cols) {
         throw std::invalid_argument("stu_csr_spmm: out size mismatch.");
     }
 
-    std::vector<float> dense(static_cast<size_t>(cols) * dense_cols);
-    for (int n = 0; n < dense_cols; ++n) {
-        const float *src = &dense_t[static_cast<size_t>(n) * cols];
-        for (int c = 0; c < cols; ++c) {
-            dense[static_cast<size_t>(c) * dense_cols + n] = src[c];
+    const float *dense_src = dense_t.data();
+    const float *values = csr.values.data();
+    const auto *col_idx = csr.col_idx.data();
+    const auto *row_ptr = csr.row_ptr.data();
+    float *out_data = out.data();
+
+    std::vector<float> dense_by_col(cols * dense_cols);
+
+    for (size_t n = 0; n < dense_cols; ++n) {
+        const float *src_row = dense_src + n * cols;
+        for (size_t c = 0; c < cols; ++c) {
+            dense_by_col[c * dense_cols + n] = src_row[c];
         }
     }
 
-    for (int r = 0; r < rows; ++r) {
-        float *out_row = &out[static_cast<size_t>(r) * dense_cols];
-        int n = 0;
-        for (; n + 16 <= dense_cols; n += 16) {
-            float acc[16] = {};
+    const float *dense = dense_by_col.data();
 
-            for (int p = csr.row_ptr[r]; p < csr.row_ptr[r + 1]; ++p) {
-                const int c = csr.col_idx[p];
-                const float v = csr.values[p];
-                const float *x = &dense[static_cast<size_t>(c) * dense_cols + n];
-                row_16(acc, x, v);
+    const size_t block8_end = dense_cols - (dense_cols % 8);
+
+    for (size_t r = 0; r < rows; ++r) {
+        const size_t row_start = static_cast<size_t>(row_ptr[r]);
+        const size_t row_end = static_cast<size_t>(row_ptr[r + 1]);
+
+        float *out_row = out_data + r * dense_cols;
+
+        size_t n = 0;
+
+        // Main optimized path: 8 output columns at once.
+        for (; n < block8_end; n += 8) {
+            float acc0 = 0.0f;
+            float acc1 = 0.0f;
+            float acc2 = 0.0f;
+            float acc3 = 0.0f;
+            float acc4 = 0.0f;
+            float acc5 = 0.0f;
+            float acc6 = 0.0f;
+            float acc7 = 0.0f;
+
+            for (size_t p = row_start; p < row_end; ++p) {
+                const size_t c = static_cast<size_t>(col_idx[p]);
+                const float v = values[p];
+
+                const float *d = dense + c * dense_cols + n;
+
+                acc0 += v * d[0];
+                acc1 += v * d[1];
+                acc2 += v * d[2];
+                acc3 += v * d[3];
+                acc4 += v * d[4];
+                acc5 += v * d[5];
+                acc6 += v * d[6];
+                acc7 += v * d[7];
             }
 
-            for (int t = 0; t < 16; ++t) {
-                out_row[n + t] = acc[t];
-            }
+            out_row[n + 0] = acc0;
+            out_row[n + 1] = acc1;
+            out_row[n + 2] = acc2;
+            out_row[n + 3] = acc3;
+            out_row[n + 4] = acc4;
+            out_row[n + 5] = acc5;
+            out_row[n + 6] = acc6;
+            out_row[n + 7] = acc7;
         }
 
+        // Leftover columns.
         for (; n < dense_cols; ++n) {
             float acc = 0.0f;
-            for (int p = csr.row_ptr[r]; p < csr.row_ptr[r + 1]; ++p) {
-                const int c = csr.col_idx[p];
-                acc += csr.values[p] * dense[static_cast<size_t>(c) * dense_cols + n];
+
+            for (size_t p = row_start; p < row_end; ++p) {
+                const size_t c = static_cast<size_t>(col_idx[p]);
+                acc += values[p] * dense[c * dense_cols + n];
             }
+
             out_row[n] = acc;
         }
     }
